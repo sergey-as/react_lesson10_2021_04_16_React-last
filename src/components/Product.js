@@ -4,7 +4,7 @@ export const Product = ({product, onCartClick, onWishlistClick, isInCart, isInWi
     <div key={product.id} className="product-item">
         <h3>{product.id} - {product.category} - {product.title}</h3>
         <h4>{product.price}</h4>
-        <h4>{product.description}</h4>
+        <p>{product.description}</p>
 
         <button style={{
             backgroundColor: isInWishlist ? 'red' : ''
@@ -21,8 +21,9 @@ export const Product = ({product, onCartClick, onWishlistClick, isInCart, isInWi
         >
             {isInCart ? 'remove from cart' : 'add to cart'}
         </button>
-
-        <img style={{width: '100%'}} src={product.image} alt={product.title}/>
+        <div style={{height: '200px'}}>
+            <img style={{height: '100%'}} src={product.image} alt={product.title}/>
+        </div>
         <hr/>
     </div>
 )

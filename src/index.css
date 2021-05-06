@@ -28,6 +28,7 @@ header span {
 .product-item {
     width: 30%;
     margin: 20px;
+    height: 100%;
 }
 
 .product-wrapper {

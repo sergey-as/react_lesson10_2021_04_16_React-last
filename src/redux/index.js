@@ -22,7 +22,8 @@ const persister = (store) => (next) => (action) => {
     localStorage.setItem('cart', JSON.stringify(cart))
 }
 
-const middlewares = [thunk, logger, persister];
+// const middlewares = [thunk, logger, persister];
+const middlewares = [thunk, persister];
 
 export const store = createStore(
     reducer,

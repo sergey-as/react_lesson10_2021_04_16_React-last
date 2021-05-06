@@ -14,7 +14,7 @@ export const Products = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadProducts());
+        dispatch(loadProducts({limit: 5}));
     }, []);
 
     return (
@@ -33,6 +33,8 @@ export const Products = () => {
                     isInWishlist={productsInWishlist.includes(el.id)}
                 />
             ))}
+            <button>load more</button>
+            // 41:15
         </div>
     )
 }
