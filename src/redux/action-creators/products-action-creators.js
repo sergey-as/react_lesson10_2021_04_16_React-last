@@ -11,21 +11,22 @@ const setProducts = (payload) => ({type: SET_PRODUCTS, payload})
 const qsHelper = (params) => {
     const keys = Object.keys(params);
     let result = '';
-    if(!keys?.length) return result;
+    if (!keys?.length) return result;
 
-    keys.forEach((el,i) => {
+    keys.forEach((el, i) => {
         result += `${el}=${params[el]}`;
         // if (i !== keys.length-1) result+= '&'
-        (i !== keys.length-1) && (result+= '&')
+        (i !== keys.length - 1) && (result += '&')
     })
     // console.log(result);
     return result
 }
 
-const loadProducts = (params) => async (dispatch) => {
+const loadProducts = (params) => async (dispatch, getState) => {
+    const hasItems = !!getState().products.products.length;
 
     try {
-        dispatch(startProductsLoading());
+        !hasItems && dispatch(startProductsLoading());
         const resp = await fetch(`https://fakestoreapi.com/products?${qsHelper(params)}`);
         const json = await resp.json();
         dispatch(setProducts(json));

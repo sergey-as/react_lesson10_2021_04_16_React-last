@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Product = ({product, onCartClick, onWishlistClick, isInCart, isInWishlist}) => (
-    <div key={product.id} className="product-item">
+    <div key={product.id}>
         <h3>{product.id} - {product.category} - {product.title}</h3>
         <h4>{product.price}</h4>
         <p>{product.description}</p>
