@@ -14,9 +14,9 @@ export const Products = () => {
     const {products, isLoading} = useSelector(store => store.products);
     const {productsInCart} = useSelector(store => store.cart);
     const {productsInWishlist} = useSelector(store => store.wishlist);
+    const dispatch = useDispatch();
     const history = useHistory();
     const [currentLimit, setCurrentLimit] = useState(5);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(loadProducts({limit: currentLimit}));

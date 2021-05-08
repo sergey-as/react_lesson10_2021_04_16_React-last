@@ -1,10 +1,13 @@
 import React, {useMemo} from "react";
 import {useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 export const Header = () => {
     const {products} = useSelector(store => store.products);
     const {productsInCart} = useSelector(store => store.cart);
     const {productsInWishlist} = useSelector(store => store.wishlist);
+
+    const history = useHistory();
 
     const culculatedCartSum = useMemo(() => {
         return products
@@ -20,7 +23,7 @@ export const Header = () => {
 
     return (
         <header>
-            <h2>HEADER</h2>
+            <h2 onClick={()=>history.push('/')}>HEADER</h2>
 
             <div className="counters">
                 <span>
